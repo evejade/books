@@ -4,7 +4,7 @@ import plotly.express as px
 
 #config da pag
 st.set_page_config(
-    #== height vh
+    #== height vh/ tir margem
     layout="wide"
     )
 
@@ -19,7 +19,8 @@ max_price = st.sidebar.slider("Price Range", price_min, price_max, price_max)
 #"liga" o slider aos dados
 df_books = df_top100_books[df_top100_books["book price"] <= max_price]
 df_books
-#count valores de quantas aparições de cada ano e monta o histograma 
+
+#count valores de quantas aparições de cada ano e monta graficos 
 fig= px.bar(df_top100_books["year of publication"].value_counts())
 fig2 = px.histogram(df_books["book price"])
 col1, col2 = st.columns(2)
